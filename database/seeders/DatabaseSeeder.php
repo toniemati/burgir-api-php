@@ -16,18 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         //todo php artisan migrate:fresh --seed
 
-        //! categories
-        foreach (['Burger', 'Addon', 'Sauce', 'Drink'] as $category) {
-            $c = new \App\Models\Category([
-                'name' => $category,
-                'description' => 'opis kategorii'
-            ]);
-
-            $c->save();
-        }
-
-        //! products
-        \App\Models\Product::factory(10)->create();
+        $this->call([
+            CategorySeeder::class, //* add categories
+            ProductSeeder::class //* add products
+        ]);
 
         // \App\Models\User::factory(10)->create();
 
