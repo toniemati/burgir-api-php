@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -14,24 +13,24 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        (new \App\Models\Category([
+        \App\Models\Category::create([
             'name' => 'Burgery',
             'description' => 'Przepyszne hamburgery'
-        ]))->save();
+        ]);
 
-        (new \App\Models\Category([
+        \App\Models\Category::create([
             'name' => 'Dodatki',
             'description' => 'Najlepsze dodatki'
-        ]))->save();
+        ]);
 
-        (new \App\Models\Category([
+        \App\Models\Category::create([
             'name' => 'Sosy',
             'description' => 'Sosy jakich jeszcze nie jadłeś'
-        ]))->save();
+        ]);
 
-        (new \App\Models\Category([
+        \App\Models\Category::create([
             'name' => 'Napoje',
             'description' => 'Orzeźwiające napoje'
-        ]))->save();
+        ]);
     }
 }

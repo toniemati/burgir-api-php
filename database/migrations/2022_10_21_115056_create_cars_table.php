@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ingredient_product', function (Blueprint $table) {
+        Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ingredient_id');
-            $table->unsignedBigInteger('product_id');
-            $table->integer('quantity')->default(1);
+            $table->string('plates');
+            $table->boolean('in_usage');
+            $table->double('mileage');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ingredient_product');
+        Schema::dropIfExists('cars');
     }
 };

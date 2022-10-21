@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -24,3 +26,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/ingredients', [IngredientController::class, 'index']);
+Route::get('/cars', [CarController::class, 'index']);
+Route::get('/customers', [CustomerController::class, 'index']);

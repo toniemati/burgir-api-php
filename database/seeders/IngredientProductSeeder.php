@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -21,6 +20,13 @@ class IngredientProductSeeder extends Seeder
         DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [1, 6]);
         DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [1, 7]);
         DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [1, 8]);
-        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [1, 11]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [1, 12]);
+
+        //! NIE MA LIPY
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [2, 1]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id, quantity) values (?, ?, ?)', [2, 3, 2]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [2, 7]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [2, 11]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [2, 12]);
     }
 }
