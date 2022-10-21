@@ -20,4 +20,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Ingredient::class);
     }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 }

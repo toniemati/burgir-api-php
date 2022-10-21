@@ -14,7 +14,7 @@ class DeliveryController extends Controller
      */
     public function index()
     {
-        $deliveries = Delivery::all();
+        $deliveries = Delivery::with('order', 'employee', 'car')->get();
 
         return $deliveries;
     }

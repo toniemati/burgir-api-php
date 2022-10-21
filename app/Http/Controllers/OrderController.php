@@ -14,7 +14,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::with('customer', 'delivery', 'products')->get();
+
+        return $orders;
     }
 
     /**
