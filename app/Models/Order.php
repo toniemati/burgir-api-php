@@ -16,11 +16,21 @@ class Order extends Model
 
     public function delivery()
     {
-        return $this->hasOne(Delivery::class);
+        return $this->belongsTo(Delivery::class);
     }
 
     public function products()
     {
         return $this->belongsToMany(Product::class);
+    }
+
+    public function deliveryCar()
+    {
+        return $this->hasOneThrough(Car::class, Delivery::class, 'id', 'id', 'id');
+    }
+
+    public function deliveryEmployee()
+    {
+        return $this->hasOneThrough(Employee::class, Delivery::class, 'id', 'id', 'id');
     }
 }

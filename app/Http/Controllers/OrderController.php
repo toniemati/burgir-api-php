@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -14,7 +15,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with('customer', 'delivery', 'products')->get();
+        $orders = Order::with('customer', 'delivery', 'products', 'deliveryCar', 'deliveryEmployee')->get();
 
         return $orders;
     }
