@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             IngredientSeeder::class, //* add ingredients
             IngredientProductSeeder::class, //* add ingredient_product relation,
             CarSeeder::class, //* add cars
-            CustomerSeeder::class, //*add customers
+            CustomerSeeder::class, //* add customers
+            EmployeeSeeder::class, //* add employees
         ]);
 
         // \App\Models\User::factory(10)->create();

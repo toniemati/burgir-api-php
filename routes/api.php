@@ -3,6 +3,8 @@
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DeliveryController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -28,3 +30,5 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/ingredients', [IngredientController::class, 'index']);
 Route::get('/cars', [CarController::class, 'index']);
 Route::get('/customers', [CustomerController::class, 'index']);
+Route::get('/employees', [EmployeeController::class, 'index']);
+Route::get('/deliveries', [DeliveryController::class, 'index']);
