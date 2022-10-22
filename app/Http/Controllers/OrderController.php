@@ -82,12 +82,14 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
+    //  * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(int $id)
     {
-        //
+        return
+            Order::with('customer', 'products', 'delivery', 'deliveryCar', 'deliveryEmployee')->find($id)
+            ?? ['message' => "Nie znaleziono zamówienia z id {$id}"];
     }
 
     /**

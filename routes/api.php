@@ -36,5 +36,6 @@ Route::get('/deliveries', [DeliveryController::class, 'index']);
 
 Route::prefix('/orders')->group(function () {
     Route::get('/', [OrderController::class, 'index']);
-    Route::any('/xd', [OrderController::class, 'store']);
+    Route::post('/', [OrderController::class, 'store']);
+    Route::get('/{id}', [OrderController::class, 'show']);
 });
