@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('plates');
-            $table->boolean('in_usage');
+            $table->boolean('bussy')->default(false);
             $table->double('mileage');
             $table->timestamps();
         });

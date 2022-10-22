@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             CarSeeder::class, //* add cars
             CustomerSeeder::class, //* add customers
             EmployeeSeeder::class, //* add employees
-            DeliverySeeder::class, //* add deliveries
             OrderSeeder::class, //* add orders
+            DeliverySeeder::class, //* add deliveries
             OrderProductSeeder::class, //* add order_product relation
         ]);
 

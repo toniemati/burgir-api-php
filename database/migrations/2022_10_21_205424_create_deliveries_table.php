@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
             $table->double('distance');
+            $table->boolean('delivered')->default(false);
+            $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('car_id');
             $table->timestamps();

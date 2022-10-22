@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
+use App\Models\Delivery;
+use App\Models\Employee;
 use App\Models\Order;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -15,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with('customer', 'delivery', 'products', 'deliveryCar', 'deliveryEmployee')->get();
+        $orders = Order::with('customer', 'products', 'delivery', 'deliveryCar', 'deliveryEmployee')->get();
 
         return $orders;
     }
@@ -38,7 +40,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return ['msg' => 'todo store order'];
     }
 
     /**

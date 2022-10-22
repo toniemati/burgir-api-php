@@ -15,17 +15,13 @@ class OrderSeeder extends Seeder
     public function run()
     {
         \App\Models\Order::create([
-            'completed' => true,
             'customer_id' => 1,
-            'order_date' => date('Y-m-d H:i:s'),
-            'delivery_id' => 1
+            'order_date' => date('Y-m-d H:i:s')
         ]);
 
         \App\Models\Order::create([
-            'completed' => true,
             'customer_id' => 2,
-            'order_date' => date('Y-m-d H:i:s'),
-            'delivery_id' => 2
+            'order_date' => date('Y-m-d H:i:s')
         ]);
     }
 }

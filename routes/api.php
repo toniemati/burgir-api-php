@@ -33,4 +33,8 @@ Route::get('/cars', [CarController::class, 'index']);
 Route::get('/customers', [CustomerController::class, 'index']);
 Route::get('/employees', [EmployeeController::class, 'index']);
 Route::get('/deliveries', [DeliveryController::class, 'index']);
-Route::get('/orders', [OrderController::class, 'index']);
+
+Route::prefix('/orders')->group(function () {
+    Route::get('/', [OrderController::class, 'index']);
+    Route::get('/xd', [OrderController::class, 'store']);
+});

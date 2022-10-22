@@ -24,7 +24,7 @@ class IngredientProductSeeder extends Seeder
 
         //! NIE MA LIPY
         DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [2, 1]);
-        DB::insert('insert into ingredient_product (product_id, ingredient_id, quantity) values (?, ?, ?)', [2, 3, 2]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [2, 3]);
         DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [2, 7]);
         DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [2, 11]);
         DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [2, 12]);

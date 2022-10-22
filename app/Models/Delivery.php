@@ -9,9 +9,11 @@ class Delivery extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function order()
     {
-        return $this->hasOne(Order::class);
+        return $this->belongsTo(Order::class);
     }
 
     public function employee()

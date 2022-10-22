@@ -9,14 +9,11 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);
-    }
-
-    public function delivery()
-    {
-        return $this->belongsTo(Delivery::class);
     }
 
     public function products()
@@ -24,13 +21,18 @@ class Order extends Model
         return $this->belongsToMany(Product::class);
     }
 
+    public function delivery()
+    {
+        return $this->hasOne(Delivery::class);
+    }
+
     public function deliveryCar()
     {
-        return $this->hasOneThrough(Car::class, Delivery::class, 'id', 'id', 'id');
+        return $this->hasOneThrough(Car::class, Delivery::class, null, 'id', null);
     }
 
     public function deliveryEmployee()
     {
-        return $this->hasOneThrough(Employee::class, Delivery::class, 'id', 'id', 'id');
+        return $this->hasOneThrough(Employee::class, Delivery::class, null, 'id', null);
     }
 }

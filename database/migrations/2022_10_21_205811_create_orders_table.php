@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->boolean('completed');
-            $table->dateTime('order_date');
+            $table->dateTime('order_date')->default(date('Y-m-d H:i:s'));
             $table->unsignedBigInteger('customer_id');
-            $table->unsignedBigInteger('delivery_id');
             $table->timestamps();
         });
     }

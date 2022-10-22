@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
+            $table->boolean('bussy')->default(false);
             $table->string('title');
             $table->dateTime('hire_date');
             $table->double('salary');
