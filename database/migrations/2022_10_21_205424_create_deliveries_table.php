@@ -18,8 +18,8 @@ return new class extends Migration
             $table->double('distance');
             $table->boolean('delivered')->default(false);
             $table->unsignedBigInteger('order_id');
-            $table->unsignedBigInteger('employee_id');
-            $table->unsignedBigInteger('car_id');
+            $table->unsignedBigInteger('employee_id')->nullable();
+            $table->unsignedBigInteger('car_id')->nullable();
             $table->timestamps();
         });
     }

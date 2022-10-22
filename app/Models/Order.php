@@ -28,11 +28,11 @@ class Order extends Model
 
     public function deliveryCar()
     {
-        return $this->hasOneThrough(Car::class, Delivery::class, null, 'id', null);
+        return $this->hasOneThrough(Car::class, Delivery::class, 'id', 'id', null, 'car_id');
     }
 
     public function deliveryEmployee()
     {
-        return $this->hasOneThrough(Employee::class, Delivery::class, null, 'id', null);
+        return $this->hasOneThrough(Employee::class, Delivery::class, 'id', 'id', null, 'employee_id');
     }
 }
