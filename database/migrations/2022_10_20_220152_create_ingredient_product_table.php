@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('ingredient_product', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ingredient_id');
             $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('ingredient_id');
             $table->timestamps();
         });
     }
