@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('img')->default('https://www.arraymedical.com/wp-content/uploads/2018/12/product-image-placeholder.jpg');
+            $table->string('img')->default('https://cdn-icons-png.flaticon.com/512/123/123278.png');
             $table->text('description');
             $table->double('price');
             $table->unsignedBigInteger('category_id');
