@@ -43,12 +43,12 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(int $id)
     {
-        return $product;
+        return Product::with('category', 'ingredients')->firstWhere('id', $id);
     }
 
     /**
