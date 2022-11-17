@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
             'name' => 'Burgir',
             'img' => 'https://c4.wallpaperflare.com/wallpaper/209/721/107/food-burger-wallpaper-preview.jpg',
             'description' => 'Nasza specjalność, nie jadłeś nigdy nic lepszego serio, po prostu go zamów i skosztuj, tylko ostrzegamy, że będziesz po niego wracał częściej niż Ci się wydaje',
-            'price' => 24.99,
+            'price' => 29.99,
             'category_id' => 1
         ]);
 
@@ -26,7 +26,7 @@ class ProductSeeder extends Seeder
             'name' => 'Cheeser',
             'img' => 'https://besthqwallpapers.com/Uploads/23-8-2016/49/thumb2-hamburger-fast-food-cheeseburger-sandwich.jpg',
             'description' => 'Jak lubisz ser, to jest to burger dla Ciebie (zawiera dużą ilość sera)',
-            'price' => 22.99,
+            'price' => 24.99,
             'category_id' => 1
         ]);
 
@@ -34,7 +34,23 @@ class ProductSeeder extends Seeder
             'name' => 'Hottuwa',
             'img' => 'https://wallpapershome.com/images/pages/pic_v/16604.jpg',
             'description' => 'Dla miłośników ostrych smaków, czeba podpisać oświadczenie 🌶',
-            'price' => 23.99,
+            'price' => 24.99,
+            'category_id' => 1
+        ]);
+
+        \App\Models\Product::create([
+            'name' => 'Kurczaker',
+            'img' => 'https://4.bp.blogspot.com/-Vgb44KN0fhs/WseEYrOyrzI/AAAAAAAAEOM/QcUYbVXrHp0MrEuMwjnH0ScMQ1716Y04QCLcBGAs/s1600/collage%2Bchicken_004.jpg',
+            'description' => 'Jeśli potrzbujesz dostaczyć organizmowi sporą ilość białka to właśnie opcja dla Ciebię 🐔',
+            'price' => 24.99,
+            'category_id' => 1
+        ]);
+
+        \App\Models\Product::create([
+            'name' => 'Veggie',
+            'img' => 'https://szefsmaku.pl/wp-content/uploads/2021/04/wege-burger-1250x712.jpg',
+            'description' => 'Pierwszej klasy burger wege, dla każdego się coś u nas znajdzie 😉',
+            'price' => 24.99,
             'category_id' => 1
         ]);
 

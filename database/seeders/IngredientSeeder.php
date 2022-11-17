@@ -108,9 +108,24 @@ class IngredientSeeder extends Seeder
             'description' => 'Bo w końcu jesteśmy Polakami'
         ]);
 
-        \App\Models\Ingredient::create([ //* 120
+        \App\Models\Ingredient::create([ //* 20
             'name' => 'Sosik ultra ostry',
             'description' => 'Fiu fiu'
+        ]);
+
+        \App\Models\Ingredient::create([ //* 21
+            'name' => 'Sosik majonezowy',
+            'description' => 'Just mayo'
+        ]);
+
+        \App\Models\Ingredient::create([ //* 22
+            'name' => 'Ogórek zielony',
+            'description' => 'zielony ogórek'
+        ]);
+
+        \App\Models\Ingredient::create([ //* 23
+            'name' => 'Sos burgerowy',
+            'description' => 'Najlepszy sosik do hamburgera'
         ]);
     }
 }

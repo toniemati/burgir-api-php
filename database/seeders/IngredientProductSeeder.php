@@ -42,5 +42,21 @@ class IngredientProductSeeder extends Seeder
         DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [3, 12]);
         DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [3, 16]);
         DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [3, 20]);
+
+        //! Kurczaker
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [4, 1]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [4, 2]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [4, 5]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [4, 12]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [4, 21]);
+        
+        //! Veggie
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [5, 1]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [5, 4]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [5, 11]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [5, 12]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [5, 18]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [5, 22]);
+        DB::insert('insert into ingredient_product (product_id, ingredient_id) values (?, ?)', [5, 23]);
     }
 }
