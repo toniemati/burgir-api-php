@@ -15,18 +15,21 @@ class OrderProductSeeder extends Seeder
      */
     public function run()
     {
-        //* 1
-        DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [1, 1]);
-        DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [1, 2]);
-        DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [1, 3]);
-        DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [1, 3]);
-        DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [1, 7]);
-        DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [1, 7]);
+        // * 1
+        // DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [1, 1]);
 
-        //* 2
-        DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [2, 1]);
-        DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [2, 4]);
-        DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [2, 5]);
-        DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [2, 8]);
+        $orders = \App\Models\Order::all();
+        $products_count = \App\Models\Product::count();
+
+        foreach ($orders as $order) {
+            $num_of_products = rand(1, 6);
+            $products_array = [];
+
+            for ($i = 0; $i < $num_of_products; $i++) {
+                $products_array[] = rand(1, $products_count);
+            }
+
+            $order->products()->attach($products_array);
+        }
     }
 }

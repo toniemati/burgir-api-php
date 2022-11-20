@@ -48,7 +48,7 @@ class ProductController extends Controller
      */
     public function show(int $id)
     {
-        return Product::with('category', 'ingredients')->firstWhere('id', $id);
+        return Product::with('category', 'ingredients')->find($id);
     }
 
     /**

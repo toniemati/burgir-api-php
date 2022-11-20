@@ -14,7 +14,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::with('orders')->get();
+        $customers = Customer::with('orders')->orderBy('id', 'desc')->get();
 
         return $customers;
     }

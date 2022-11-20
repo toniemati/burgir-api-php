@@ -19,7 +19,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with('customer', 'products', 'delivery', 'deliveryCar', 'deliveryEmployee')->get();
+        $orders = Order::with('customer', 'products', 'delivery', 'deliveryCar', 'deliveryEmployee')->orderBy('id', 'desc')->get();
 
         return $orders;
     }
@@ -44,39 +44,33 @@ class OrderController extends Controller
     {
         $order = Order::create(['customer_id' => $request->customer_id]);
 
-        foreach ($request->get('products') ?? [] as $item) {
-            for ($i = 0; $i < $item['quantity']; $i++) {
-                DB::insert('insert into order_product (order_id, product_id) values (?, ?)', [$order->id, $item['product_id']]);
+        $products_array = [];
+
+        foreach ($request->get('products') as $product) {
+            for ($i = 0; $i < $product['quantity']; $i++) {
+                $products_array[] = $product['product_id'];
             }
         }
 
-        try {
-            $free_car = Car::where('bussy', false)->get()->random();
-        } catch (Exception $e) {
-            $free_car = null;
-        }
+        $order->products()->attach($products_array);
 
-        try {
-            $free_employee = Employee::where('bussy', false)->get()->random();
-        } catch (Exception $e) {
-            $free_employee = null;
-        }
+        $free_car = Car::where('bussy', false)->get()->random();
+        $free_employee = Employee::where('bussy', false)->get()->random();
 
         $delivery = Delivery::create([
-            'distance' => rand(1, 99),
+            'distance' => rand(1, 50),
             'order_id' => $order->id,
-            'employee_id' => $free_car->id ?? null,
-            'car_id' => $free_employee->id ?? null
+            'car_id' => $free_car->id ?? null,
+            'employee_id' => $free_employee->id ?? null
         ]);
 
-        if ($free_car) $free_car->update(['bussy' => true]);
-        if ($free_employee) $free_employee->update(['bussy' => true]);
-
-        $order->delivery_car = $free_car;
-        $order->delivery_employee = $free_employee;
         $order->delivery = $delivery;
 
-        return Order::with('customer', 'products', 'delivery', 'deliveryCar', 'deliveryEmployee')->findOrFail($order->id);
+        if ($free_car) {
+            $free_car->update(['mileage' => $free_car->mileage + $delivery->distance]);
+        }
+
+        return $order;
     }
 
     /**

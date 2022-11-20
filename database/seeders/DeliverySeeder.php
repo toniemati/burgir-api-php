@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DeliverySeeder extends Seeder
@@ -14,20 +13,24 @@ class DeliverySeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Delivery::create([
-            'distance' => 25,
-            'delivered' => true,
-            'order_id' => 1,
-            'employee_id' => 1,
-            'car_id' => 1,
-        ]);
+        $orders = \App\Models\Order::all();
 
-        \App\Models\Delivery::create([
-            'distance' => 11,
-            'delivered' => true,
-            'order_id' => 2,
-            'employee_id' => 2,
-            'car_id' => 2,
-        ]);
+        foreach ($orders as $order) {
+            $distance = rand(1, 50);
+            $employee = \App\Models\Employee::inRandomOrder()->get()->first();
+            $car = \App\Models\Car::inRandomOrder()->get()->first();
+
+            $car->update([
+                'mileage' => $car->mileage + $distance
+            ]);
+
+            \App\Models\Delivery::create([
+                'distance' => $distance,
+                'delivered' => true,
+                'order_id' => $order->id,
+                'employee_id' => $employee->id,
+                'car_id' => $car->id,
+            ]);
+        }
     }
 }

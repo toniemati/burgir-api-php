@@ -16,19 +16,19 @@ class CarSeeder extends Seeder
         \App\Models\Car::create([
             'plates' => 'STA 12345',
             'bussy' => false,
-            'mileage' => 150000
+            'mileage' => 95000
         ]);
 
         \App\Models\Car::create([
             'plates' => 'SY 12345',
             'bussy' => false,
-            'mileage' => 150000
+            'mileage' => 134000
         ]);
 
         \App\Models\Car::create([
             'plates' => 'SK 12345',
             'bussy' => false,
-            'mileage' => 150000
+            'mileage' => 44000
         ]);
     }
 }

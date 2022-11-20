@@ -13,6 +13,6 @@ class Car extends Model
 
     public function deliveries()
     {
-        return $this->hasOne(Delivery::class);
+        return $this->hasMany(Delivery::class);
     }
 }

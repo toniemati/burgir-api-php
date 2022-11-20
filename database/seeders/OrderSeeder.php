@@ -14,14 +14,16 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Order::create([
-            'customer_id' => 1,
-            'order_date' => date('Y-m-d H:i:s')
-        ]);
+        \App\Models\Order::factory(200)->create();
+        
+        // \App\Models\Order::create([
+        //     'customer_id' => 1,
+        //     'order_date' => date('Y-m-d H:i:s')
+        // ]);
 
-        \App\Models\Order::create([
-            'customer_id' => 2,
-            'order_date' => date('Y-m-d H:i:s')
-        ]);
+        // \App\Models\Order::create([
+        //     'customer_id' => 2,
+        //     'order_date' => date('Y-m-d H:i:s')
+        // ]);
     }
 }
