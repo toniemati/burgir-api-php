@@ -34,11 +34,14 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/ingredients', [IngredientController::class, 'index']);
 
 Route::get('/cars', [CarController::class, 'index']);
+Route::get('/car/{id}', [CarController::class, 'show']);
 
 Route::get('/customers', [CustomerController::class, 'index']);
+Route::get('/customer/{id}', [CustomerController::class, 'show']);
 Route::post('/customers', [CustomerController::class, 'store']);
 
 Route::get('/employees', [EmployeeController::class, 'index']);
+Route::get('/employee/{id}', [EmployeeController::class, 'show']);
 
 Route::prefix('/deliveries')->group(function () {
     Route::get('/', [DeliveryController::class, 'index']);

@@ -46,9 +46,9 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show(int $id)
     {
-        //
+        return Employee::with('deliveries')->find($id);
     }
 
     /**
