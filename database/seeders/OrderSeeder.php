@@ -14,7 +14,7 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Order::factory(200)->create();
+        \App\Models\Order::factory(419)->create();
         
         // \App\Models\Order::create([
         //     'customer_id' => 1,

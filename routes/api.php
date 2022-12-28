@@ -39,7 +39,11 @@ Route::get('/customers', [CustomerController::class, 'index']);
 Route::post('/customers', [CustomerController::class, 'store']);
 
 Route::get('/employees', [EmployeeController::class, 'index']);
-Route::get('/deliveries', [DeliveryController::class, 'index']);
+
+Route::prefix('/deliveries')->group(function () {
+    Route::get('/', [DeliveryController::class, 'index']);
+    Route::get('/{id}', [DeliveryController::class, 'show']);
+});
 
 Route::prefix('/orders')->group(function () {
     Route::get('/', [OrderController::class, 'index']);

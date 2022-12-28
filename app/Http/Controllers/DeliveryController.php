@@ -46,9 +46,11 @@ class DeliveryController extends Controller
      * @param  \App\Models\Delivery  $delivery
      * @return \Illuminate\Http\Response
      */
-    public function show(Delivery $delivery)
+    public function show(int $id)
     {
-        //
+        return
+            Delivery::with('employee', 'car')->find($id)
+            ?? ['message' => "Nie znaleziono zamówienia z id {$id}"];
     }
 
     /**
