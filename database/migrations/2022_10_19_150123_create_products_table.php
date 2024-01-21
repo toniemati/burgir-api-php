@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('img')->default('https://cdn-icons-png.flaticon.com/512/123/123278.png');
+            $table->text('img')->default('https://cdn-icons-png.flaticon.com/512/123/123278.png');
             $table->text('description');
             $table->double('price');
+            $table->boolean('available')->default(true);
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
         });

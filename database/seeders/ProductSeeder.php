@@ -32,7 +32,7 @@ class ProductSeeder extends Seeder
 
         \App\Models\Product::create([
             'name' => 'Hottuwa',
-            'img' => 'https://wallpapershome.com/images/pages/pic_v/16604.jpg',
+            'img' => 'https://img.freepik.com/premium-zdjecie/pikantny-burger_777078-577.jpg',
             'description' => 'Dla miłośników ostrych smaków, czeba podpisać oświadczenie 🌶',
             'price' => 24.99,
             'category_id' => 1

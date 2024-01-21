@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('bussy')->default(false);
             $table->string('title');
             $table->dateTime('hire_date');
+            $table->double('hourly_pay');
             $table->double('salary');
             $table->text('address');
             $table->timestamps();

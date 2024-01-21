@@ -16,12 +16,15 @@ class EmployeeFactory extends Factory
      */
     public function definition()
     {
+        $hourly_pay = rand(10, 50);
+
         return [
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'title' => $this->faker->jobTitle(),
             'hire_date' => $this->faker->date('Y-m-d H:i:s'),
-            'salary' => rand(2000, 5000),
+            'hourly_pay' => $hourly_pay,
+            'salary' => $hourly_pay * 2080,
             'address' => $this->faker->address(),
         ];
     }
