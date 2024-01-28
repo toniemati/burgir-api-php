@@ -23,7 +23,11 @@ return new class extends Migration
             $table->string('house_number');
             $table->string('telephone');
             $table->string('email');
+            $table->string('login');
+            $table->string('password');
             $table->timestamps();
+
+            $table->unique(['email', 'login']);
         });
     }
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class CustomerController extends Controller
 {
@@ -37,7 +39,10 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        $customer = Customer::create($request->all());
+        $customer = Customer::create([
+            ...$request->all(),
+            'password' => Hash::make($request->password)
+        ]);
 
         return $customer;
     }
@@ -85,5 +90,27 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         //
+    }
+
+    public function login(Request $request)
+    {
+        $customer = Customer::query()
+            ->where('login', $request->get('login'))
+            ->first();
+
+
+        if ($customer && Hash::check($request->get('password'), $customer->password)) {
+            Log::channel('login')
+                ->info("Pomyślne logowanie klienta: {$customer->id}\n\n");
+
+            return [
+                'customerId' => $customer->id,
+                'success' => true
+            ];
+        }
+
+        Log::channel('login')
+            ->info("Nieudane logowanie klienta: {$customer->id}\n\n");
+        return ['success' => false];
     }
 }

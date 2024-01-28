@@ -9,6 +9,7 @@ use App\Models\Order;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
@@ -69,6 +70,9 @@ class OrderController extends Controller
         if ($free_car) {
             $free_car->update(['mileage' => $free_car->mileage + $delivery->distance]);
         }
+
+        Log::channel('orders')
+            ->info("Klient {$order->customer_id} złożył zamówienie {$order->id}");
 
         return $order;
     }

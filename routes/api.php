@@ -8,6 +8,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Middleware\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -49,7 +50,9 @@ Route::prefix('/deliveries')->group(function () {
 });
 
 Route::prefix('/orders')->group(function () {
-    Route::get('/', [OrderController::class, 'index']);
+    Route::get('/', [OrderController::class, 'index'])->middleware(Admin::class);
     Route::post('/', [OrderController::class, 'store']);
     Route::get('/{id}', [OrderController::class, 'show']);
 });
+
+Route::post('login', [CustomerController::class, 'login']);

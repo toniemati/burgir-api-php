@@ -51,6 +51,18 @@ return [
     */
 
     'channels' => [
+        'orders' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/orders.log'),
+            'level' => 'debug',
+        ],
+
+        'login' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/login.log'),
+            'level' => 'debug',
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => ['single'],
@@ -85,7 +97,7 @@ return [
             'handler_with' => [
                 'host' => env('PAPERTRAIL_URL'),
                 'port' => env('PAPERTRAIL_PORT'),
-                'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
+                'connectionString' => 'tls://' . env('PAPERTRAIL_URL') . ':' . env('PAPERTRAIL_PORT'),
             ],
         ],
 
